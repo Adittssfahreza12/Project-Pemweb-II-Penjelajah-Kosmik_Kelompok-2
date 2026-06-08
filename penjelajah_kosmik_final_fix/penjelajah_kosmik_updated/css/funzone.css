@@ -1,0 +1,203 @@
+/* ==========================================================================
+   CSS ZONA EDUKASI (FUN ZONE) — KONSISTEN DENGAN GLOBAL DESIGN SYSTEM
+   ========================================================================== */
+
+/* Efek Bintang Latar Belakang (Dibuat agak redup agar konten menonjol) */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Penyelarasan Layouting Utama */
+.container-funzone {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sektor Hero Atas */
+.funzone-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-heading);
+  color: var(--color-text-dim);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.funzone-hero h1 {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.funzone-desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Animasi Sparkle Bintang Kecil */
+.sparkle {
+  display: inline-block;
+  color: var(--color-accent);
+  animation: sparkle-pulse 2s infinite ease-in-out;
+}
+
+@keyframes sparkle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+/* ==========================================================================
+   MAIN FACT CARD STYLE (GLASSMORPHISM INTEGRATION)
+   ========================================================================== */
+.fact-card {
+  width: 100%;
+  max-width: 850px;
+  padding: 50px 64px;
+  text-align: center;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(91, 174, 232, 0.05);
+}
+
+.fact-title {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+}
+
+.fact-content {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  min-height: 100px; /* Menjaga layout tidak melompat saat teks berganti */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tombol Aksi "Berikutnya" — Desain Premium Melengkung */
+.next-btn {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  border: none;
+  padding: 14px 36px;
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  color: #030a1a; /* Warna teks gelap agar super kontras di atas tombol biru terang */
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px var(--color-accent-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 25px rgba(91, 174, 232, 0.4);
+}
+
+.next-btn:active {
+  transform: translateY(0);
+}
+
+.next-btn .sparkle {
+  color: #030a1a; /* Menyamakan warna ikon bintang di dalam tombol */
+}
+
+.fact-counter {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-dim);
+  margin-top: 24px;
+}
+
+/* ==========================================================================
+   INFO CARDS STATISTICS (GRID BOTTOM)
+   ========================================================================== */
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 850px;
+}
+
+.info-card {
+  padding: 32px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(91, 174, 232, 0.3);
+}
+
+.info-card-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.infinity-symbol {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: #a855f7; /* Tetap pertahankan ungu tipis khusus icon misteri agar bervariasi */
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.info-card-title {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   RESPONSIVITAS MEDIA QUERY (MOBILE FRIENDLY)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .fact-card {
+    padding: 36px 24px;
+  }
+
+  .fact-title {
+    font-size: var(--text-xl);
+  }
+
+  .fact-content {
+    font-size: var(--text-base);
+  }
+
+  .info-cards-grid {
+    grid-template-columns: 1fr; /* Menjadi satu baris lurus ke bawah di HP */
+    gap: 16px;
+  }
+}
